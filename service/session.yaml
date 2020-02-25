@@ -1,0 +1,163 @@
+swagger: '2.0'
+info:
+  title: Session service
+  description: Service for managig sessions
+  version: 1.0.0
+host: localhost
+schemes:
+  - https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  '/session/{id}':
+    get:
+      summary: Returns or creates session
+      description: |
+        Returns session id
+      parameters:
+        - name: id
+          in: path
+          description: Session ID
+          required: true
+          type: string
+      tags:
+        - Session
+      responses:
+        '200':
+          description: An array of files
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Listing'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - job_auth:
+            - 'read_session'
+    put:
+      summary: Updates session with data
+      description: |
+        Updates session with data
+      parameters:
+        - name: id
+          in: path
+          description: Session id
+          required: true
+          type: string
+      tags:
+        - Session
+      responses:
+        '200':
+          description: An array of files
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Listing'
+        default:
+          description: Unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+      security:
+        - job_auth:
+            - 'write_session'
+definitions:
+  Listing:
+    properties:
+      _uuid:
+        type: string
+        description: Unique identifier representing a specific listing
+      reference:
+        type: string
+        description: >-
+          A reference field if a listing is to refer something e.g. another
+          listing to make sublisting
+      published:
+        type: number
+        description: Date timestamp published or null if not published
+      name:
+        type: string
+        description: Description of listing.
+      slug:
+        type: string
+        description: Slug description of listing
+      summary:
+        type: string
+        description: Summary of the listing
+      description:
+        type: string
+        description: Meta description for the listing
+      status:
+        type: string
+        description: 'Listing status, new, approved etc.'
+      comments:
+        type: string
+        description: Any listing comments from administrator e.g. if listing is rejected
+      positioning:
+        type: string
+        description: featured or other type of positioning
+      display:
+        type: string
+        description: 'How to display the listing 1x1, 1x2, 2x1, 2x2'
+      weight:
+        type: number
+        description: Sorting weight for the listing
+      type:
+        type: string
+        description: 'Listing type house, car, pet'
+      category:
+        type: string
+        description: Listing category e.g. Things for sale
+      main_image:
+        type: string
+        description: Listing's main image
+      images:
+        type: array
+        description: Sorted array of images
+      address:
+        type: string
+        description: Address reference
+      location:
+        type: string
+        description: Geographic location related to listing if any
+      count:
+        type: number
+        description: Number of total requests
+      likes:
+        type: number
+        description: Sum of all likes
+      rating:
+        type: number
+        description: 0-5 star double precision rating
+      highlights:
+        type: array
+        description: Set of highlights (bulletpoints) if any
+      sections:
+        type: array
+        description: Sequenced list of text sections (if any)
+      tags:
+        type: array
+        description: An array of one-word tags to assist search
+      meta:
+        type: object
+        description: Meta information to store with listing
+  Error:
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+securityDefinitions:
+  job_auth:
+    type: basic
+    # type: oauth2
+    # authorizationUrl: 'http://swagger.io/api/oauth/dialog'
+    # flow: implicit
+    # scopes:
+    #   'write_jobs': modify listings
+    #   'read:listings': read listings
