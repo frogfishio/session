@@ -1,4 +1,4 @@
-import { Engine } from '@frogfish/engine';
+import { Engine } from '@frogfish/kona';
 
 const chai = require('chai');
 chai.use(require('chai-like'));
