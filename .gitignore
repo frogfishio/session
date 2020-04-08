@@ -1,11 +1,12 @@
 .*
+*.log
 *.rdb
 *.js
 *.map
-*.log
 !gulpfile.js
 !.gitignore
+!.github
 
-node_modules
 /dist/
-/build/
+node_modules
+/build

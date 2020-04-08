@@ -7,10 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "DEBUG=service* ENGINE_ROOT=$PWD mocha --exit build/debug/test",
+    "test": "gulp prepare-debug; tsc; mocha --exit --recursive build/debug/test/account",
     "watch": "gulp prepare-debug; tsc -w",
+    "start": "mkdir -p build/debug/src; cp src/services/role.yaml build/debug/src; DEBUG=engine*,svc:*  tsc-watch --onSuccess \"node node_modules/@frogfish/kona/engine -c service.yaml --root $PWD/build/debug/src\"",
+    "build": "gulp build",
     "clean-build": "gulp clean; gulp build",
-    "dist": "npm version patch; gulp clean; gulp build; cd build/release; npm publish; git push origin master"
+    "dist": "npm version patch; gulp clean; gulp build; cd build/release; npm publish --access public; git push origin master"
   },
   "repository": {
     "type": "git",
@@ -21,18 +23,18 @@
   "homepage": "https://bitbucket.org/alex_koderra/session_service#readme",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.11",
+    "@types/node": "^12.12.34",
     "chai": "^4.2.0",
     "chai-like": "^1.1.1",
     "chai-things": "^0.2.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
-    "mocha": "^6.2.1",
-    "tsc-watch": "^4.0.0",
-    "typescript": "^3.6.3"
+    "mocha": "^6.2.3",
+    "tsc-watch": "^4.2.3",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@frogfish/kona": "^2.0.6"
+    "@frogfish/kona": "^2.0.18"
   }
 }
