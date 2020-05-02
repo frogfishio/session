@@ -36,7 +36,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
         - job_auth:
-            - 'read_session'
+            - 'read_sessions'
     put:
       summary: Updates session with data
       description: |
@@ -62,7 +62,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
         - job_auth:
-            - 'write_session'
+            - 'modify_sessions'
 definitions:
   Listing:
     properties:
