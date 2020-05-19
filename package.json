@@ -31,10 +31,10 @@
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
     "mocha": "^6.2.3",
-    "tsc-watch": "^4.2.5",
+    "tsc-watch": "^4.2.6",
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@frogfish/kona": "^2.1.22"
+    "@frogfish/kona": "^2.1.37"
   }
 }
