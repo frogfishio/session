@@ -23,7 +23,7 @@
   "homepage": "https://bitbucket.org/alex_koderra/session_service#readme",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.41",
+    "@types/node": "^12.12.42",
     "chai": "^4.2.0",
     "chai-like": "^1.1.1",
     "chai-things": "^0.2.0",
@@ -31,10 +31,10 @@
     "gulp": "^4.0.2",
     "gulp-typescript": "^5.0.1",
     "mocha": "^6.2.3",
-    "tsc-watch": "^4.2.7",
+    "tsc-watch": "^4.2.8",
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "@frogfish/kona": "^2.2.1"
+    "@frogfish/kona": "^2.2.5"
   }
 }

@@ -3,31 +3,30 @@ import { Engine } from '@frogfish/kona';
 
 let logger;
 
-export default class ProductHandler {
+export default class SessionServiceHandler {
   constructor(private engine: Engine, private user) {
-    logger = engine.log.log('@session');
+    logger = engine.log.log('service:session');
   }
 
   put(req, res, next) {
     this.engine.session
       .set(req.path.split('/')[3], req.body)
-      .then(result => {
+      .then((result) => {
         res.json(result);
       })
-      .catch(err => {
-        logger.error(err);
-        err.send(res);
+      .catch((err) => {
+        require('@frogfish/kona/util').error(err, res, logger, 'svc_session_put');
       });
   }
 
   get(req, res, next) {
     this.engine.session
       .get(req.path.split('/')[3])
-      .then(job => {
+      .then((job) => {
         res.json(job);
       })
-      .catch(err => {
-        err.send(res);
+      .catch((err) => {
+        require('@frogfish/kona/util').error(err, res, logger, 'svc_session_get');
       });
   }
 }
