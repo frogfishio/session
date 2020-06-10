@@ -11,10 +11,21 @@ export default class SessionServiceHandler {
   put(req, res, next) {
     this.engine.session
       .set(req.path.split('/')[3], req.body)
-      .then((result) => {
+      .then(result => {
         res.json(result);
       })
-      .catch((err) => {
+      .catch(err => {
+        require('@frogfish/kona/util').error(err, res, logger, 'svc_session_put');
+      });
+  }
+
+  post(req, res, next) {
+    this.engine.session
+      .create(req.body)
+      .then(result => {
+        res.json(result);
+      })
+      .catch(err => {
         require('@frogfish/kona/util').error(err, res, logger, 'svc_session_put');
       });
   }
@@ -22,10 +33,10 @@ export default class SessionServiceHandler {
   get(req, res, next) {
     this.engine.session
       .get(req.path.split('/')[3])
-      .then((job) => {
+      .then(job => {
         res.json(job);
       })
-      .catch((err) => {
+      .catch(err => {
         require('@frogfish/kona/util').error(err, res, logger, 'svc_session_get');
       });
   }
