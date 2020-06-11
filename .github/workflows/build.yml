@@ -19,8 +19,6 @@ jobs:
     - run: mkdir -p build/release
     - name: build service
       run: npm run build
-    - name: get jq
-      run: apt-get install -y jq
     - name: get tag
       run: export SVC_VERSION=$(cat package.json | jq -r .version)
     - name: Publish to Registry
