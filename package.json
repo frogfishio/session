@@ -1,6 +1,6 @@
 {
   "name": "@frogfish/session",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Session micro service",
   "main": "gulpfile.js",
   "directories": {
