@@ -21,6 +21,10 @@ jobs:
       run: npm run build
     - name: get tag
       run: export SVC_VERSION=$(cat package.json | jq -r .version)
+    - name: check -1
+      run: cat package.json | jq -r .version
+    - name: check 0
+      run: cat package.json | jq .
     - name: check
       run: echo "SVC_VERSION = $SVC_VERSION"
     - name: Publish to Registry
