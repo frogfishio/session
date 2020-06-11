@@ -15,12 +15,6 @@ paths:
       summary: Creates a session
       description: |
         Returns created session id
-      parameters:
-        - name: id
-          in: path
-          description: Session ID
-          required: true
-          type: string
       tags:
         - Session
       responses:
