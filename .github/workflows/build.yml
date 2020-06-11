@@ -21,6 +21,8 @@ jobs:
       run: npm run build
     - name: get tag
       run: export SVC_VERSION="$(cat package.json | jq -r .version)"
+    - name: try
+      run: echo "::set-env name=SVC_VERSION::$(cat package.json | jq -r .version)"
     - name: check -1
       run: cat package.json | jq -r .version
     - name: check 0
