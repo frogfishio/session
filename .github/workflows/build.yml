@@ -20,7 +20,7 @@ jobs:
     - name: build service
       run: npm run build
     - name: get tag
-      run: export SVC_VERSION=$(cat package.json | jq -r .version)
+      run: export SVC_VERSION="$(cat package.json | jq -r .version)"
     - name: check -1
       run: cat package.json | jq -r .version
     - name: check 0
