@@ -19,13 +19,14 @@ jobs:
     - run: mkdir -p build/release
     - name: build service
       run: npm run build
-    - name: PWD
-      run: pwd
-    - name: LS
-      run: ls -lasi
+    - name: get jq
+      run: apt-get install -y jq
+    - name: get tag
+      run: export SVC_VERSION=$(cat package.json | jq -r .version)
     - name: Publish to Registry
       uses: HurricanKai/Publish-Docker-Github-Action@master
       with:
         name: frogfishio/session
         username: frogfishio
         password: ${{ secrets.DOCKERHUB_SECRET }}
+        tags: "latest,${{ env.SVC_VERSION }}"

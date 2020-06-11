@@ -26,7 +26,7 @@ export default class SessionServiceHandler {
         res.json(result);
       })
       .catch(err => {
-        require('@frogfish/kona/util').error(err, res, logger, 'svc_session_put');
+        require('@frogfish/kona/util').error(err, res, logger, 'svc_session_post');
       });
   }
 

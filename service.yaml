@@ -24,7 +24,7 @@ auth:
 
 registry:
   services:
-    session-service:
+    session:
       name: Session service
       specs:
         - /session.yaml
