@@ -1,6 +1,6 @@
 {
   "name": "@frogfish/session",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "Session micro service",
   "main": "gulpfile.js",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "gulp prepare-debug; tsc; mocha --exit --recursive build/debug/test/account",
     "watch": "gulp prepare-debug; tsc -w",
-    "start": "mkdir -p build/debug/src; cp src/services/role.yaml build/debug/src; DEBUG=engine*,svc:*  tsc-watch --onSuccess \"node node_modules/@frogfish/kona/engine -c service.yaml --root $PWD/build/debug/src\"",
+    "start": "mkdir -p build/debug/src; cp service/session.yaml build/debug/src; DEBUG=engine*,svc:*  tsc-watch --onSuccess \"node node_modules/@frogfish/kona/engine -c service.yaml --root $PWD/build/debug/src\"",
     "build": "gulp build",
     "clean-build": "gulp clean; gulp build",
     "dist": "npm version patch; gulp clean; gulp build; cd build/release; npm publish --access public; git push origin master"
