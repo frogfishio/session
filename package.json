@@ -35,6 +35,6 @@
     "typescript": "^3.9.5"
   },
   "dependencies": {
-    "@frogfish/kona": "^2.2.6"
+    "@frogfish/kona": "^2.2.26"
   }
 }
