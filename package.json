@@ -23,7 +23,7 @@
   "homepage": "https://bitbucket.org/alex_koderra/session_service#readme",
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.54",
+    "@types/node": "^12.12.55",
     "chai": "^4.2.0",
     "chai-like": "^1.1.1",
     "chai-things": "^0.2.0",
