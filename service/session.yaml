@@ -30,7 +30,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
         - job_auth:
-            - 'create_sessions'
+            - 'create_session'
   '/session/{id}':
     get:
       summary: Returns or creates session
@@ -57,7 +57,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
         - job_auth:
-            - 'read_sessions'
+            - 'read_session'
     put:
       summary: Updates session with data
       description: |
@@ -83,7 +83,7 @@ paths:
             $ref: '#/definitions/Error'
       security:
         - job_auth:
-            - 'modify_sessions'
+            - 'modify_session'
 definitions:
   Listing:
     properties:
