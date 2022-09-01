@@ -1,6 +1,6 @@
 {
   "name": "@frogfish/session",
-  "version": "1.0.32",
+  "version": "3.0.0",
   "description": "Session micro service",
   "main": "gulpfile.js",
   "directories": {
@@ -35,6 +35,6 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@frogfish/kona": "^2.2.54"
+    "@frogfish/kona": "^3.0.6"
   }
 }
